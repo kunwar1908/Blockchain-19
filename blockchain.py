@@ -7,7 +7,6 @@ from uuid import uuid4
 import requests
 from flask import Flask, jsonify, request
 
-
 class Blockchain:
     def __init__(self):
         self.current_transactions = []
@@ -16,7 +15,7 @@ class Blockchain:
 
         # Create the genesis block
         self.new_block(previous_hash='1', proof=100)
-
+        
     def register_node(self, address):
         """
         Add a new node to the list of nodes
@@ -291,6 +290,7 @@ def consensus():
 
 
 if __name__ == '__main__':
+    app.run()
     from argparse import ArgumentParser
 
     parser = ArgumentParser()
@@ -299,3 +299,4 @@ if __name__ == '__main__':
     port = args.port
 
     app.run(host='0.0.0.0', port=port)
+    
